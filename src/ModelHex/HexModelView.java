@@ -1,11 +1,11 @@
-package src;
+package src.ModelHex;
 
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import src.ModelHex.HexModel;
+import src.Subscriber;
 
-public class HexModelView extends Pane implements Subscriber {
+public class HexModelView extends Text implements Subscriber {
 
     public final static double SIZE = 30;
 
@@ -14,24 +14,30 @@ public class HexModelView extends Pane implements Subscriber {
     public HexModelView(HexModel hexModel) {
         this.hexModel = hexModel;
 
-        Text value_lab = new Text(hexModel.getHex());
-        value_lab.setTranslateX(5);
-        value_lab.setTranslateY(15);
 
-        setPrefSize(SIZE, SIZE);
+        //Text value_lab = new Text(hexModel.getHex());
+        setText(hexModel.getHex());
+        //setFill(Color.RED);
+        //setStyle("-fx-font-size: 32;");
 
-        getChildren().addAll(value_lab);
+        //value_lab.setTranslateX(5);
+        //value_lab.setTranslateY(15);
 
-        if (hexModel.isFake()) {
+        //setPrefSize(SIZE, SIZE);
+
+        //getChildren().addAll(value_lab);
+
+        /*if (hexModel.isFake()) {
             Label fake_lab = new Label("!");
             fake_lab.setTranslateX(25);
             getChildren().addAll(fake_lab);
-        }
+        }*/
 
         decorate();
     }
 
     private void decorate() {
+
         String color = "";
         switch(hexModel.getStatus()) {
             case New:
@@ -47,7 +53,7 @@ public class HexModelView extends Pane implements Subscriber {
                 color = "grey";
                 break;
         }
-        setStyle("-fx-background-color: " + color + ";");
+        setFill(Color.valueOf(color));
     }
 
     @Override

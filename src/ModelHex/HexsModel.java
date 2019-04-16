@@ -1,4 +1,6 @@
-package src;
+package src.ModelHex;
+
+import src.Status;
 
 import java.util.ArrayList;
 
@@ -8,6 +10,33 @@ public class HexsModel {
 
     }
 
+    private Hexs hexs;
+    private boolean isDementor = false;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFileName() {
+        return hexs.getFileName();
+    }
+
+    public String getAbsolutePath() {
+        return hexs.getPath();
+    }
+
+    public boolean isDementor() {
+        return isDementor;
+    }
+
+    public void setDementor(boolean b) {
+        isDementor = b;
+    }
 
     public ArrayList<HexModel> getHexModels_list() {
         return hexModels;
@@ -33,6 +62,7 @@ public class HexsModel {
     private ArrayList<HexModel> hexModels = new ArrayList<>();
 
     public HexsModel(Hexs hexs) {
+        this.hexs = hexs;
         ArrayList<Integer> values_hex = hexs.getValues();
 
         for (Integer value : values_hex) {

@@ -1,4 +1,7 @@
-package src;
+package src.ModelHex;
+
+import src.Status;
+import src.Subscriber;
 
 import java.util.ArrayList;
 
@@ -62,5 +65,9 @@ public class HexModel {
 
     public boolean equalValue(HexModel hexModel2) {
         return value == hexModel2.value;
+    }
+
+    public boolean isChanged() {
+        return status == Status.Changed;
     }
 }

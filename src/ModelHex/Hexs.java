@@ -1,14 +1,9 @@
-package src;
+package src.ModelHex;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-/*
-* Hexs - содржит список Integer
-* HexModel - hex с различными значениями
-* HexsModel - список HexModel*/
 public class Hexs {
 
     private String fileName;
